@@ -22,7 +22,8 @@ Personalis' cram2fq tool is written specifically to generate original FASTQ file
 
 Personalis' cram2fq is optimized for, and only works with CRAM files delivered by Personalis.
 
-CRAM files delivered by Personalis should _only_ be converted back to FASTQ using the Personalis cram2fq tool.
+[CRAM files delivered by Personalis should _only_ be converted back to FASTQ using the Personalis cram2fq tool.](#why-do-you-have-to-use-personalis-cram2fq-with-personalis-cram-files)
+
 
 # Usage
 ## cram2fq
