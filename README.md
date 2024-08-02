@@ -12,7 +12,7 @@
   - [Why do you have to use Personalis' cram2fq with Personalis CRAM files?](#why-do-you-have-to-use-personalis-cram2fq-with-personalis-cram-files)
     - [Original base quality scores](#original-base-quality-scores)
     - [FASTQ comments](#fastq-comments)
-    - [Secondary/non-primary alignments](#secondarynon-primary-mappings-of-reads)
+    - [Secondary/non-primary alignments](#secondarynon-primary-alignments)
     - [Automatic calculation of fqsum](#automatic-calculation-of-fqsum)
 
 
