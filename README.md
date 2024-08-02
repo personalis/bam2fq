@@ -1,6 +1,5 @@
 # Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [cram2fq](#cram2fq)
 - [Usage](#usage)
   - [cram2fq](#cram2fq-1)
@@ -11,9 +10,9 @@
 - [Common questions:](#common-questions)
   - [Why do you use fqsum instead of md5/sha1sum, etc?](#why-do-you-use-fqsum-instead-of-md5sha1sum-etc)
   - [Why do you have to use Personalis' cram2fq with Personalis CRAM files?](#why-do-you-have-to-use-personalis-cram2fq-with-personalis-cram-files)
-    - [Preserves original base quality scores](#preserves-original-base-quality-scores)
+    - [Original base quality scores](#original-base-quality-scores)
     - [FASTQ comments](#fastq-comments)
-    - [Proper handling of secondary/non-primary mappings of reads](#proper-handling-of-secondarynon-primary-mappings-of-reads)
+    - [Secondary/non-primary alignments](#secondarynon-primary-mappings-of-reads)
     - [Automatic calculation of fqsum](#automatic-calculation-of-fqsum)
 
 
@@ -172,7 +171,7 @@ If we were to use an algorithm such as md5, we would need to sort the FASTQ file
 ## Why do you have to use Personalis' cram2fq with Personalis CRAM files?
 
 
-### Preserves original base quality scores
+### Original base quality scores
 
 Personalis CRAM files contain the original, pre-BQSR base quality score encoded in the "XQ" SAM field. The Personalis cram2fq program ignores the "QUAL" field of the CRAM files, which contains BQSR quality scores, and instead uses the XQ SAM field for quality scores.
 
@@ -180,7 +179,7 @@ Personalis CRAM files contain the original, pre-BQSR base quality score encoded 
 
 Personalis CRAM files store the original FASTQ comments (i.e, the second column on the 1st line of every FASTQ record) in the "XC" SAM field. The cram2fq program ensures that the original FASTQ comments are properly placed in the output FASTQ files.
 
-### Proper handling of secondary/non-primary mappings of reads
+### Secondary/non-primary alignments
 
 Personalis CRAM files typically contain supplementary/non-primary alignments. It is imperative to ignore such alignments when converting from CRAM to FASTQ, otherwise one will see the same record appear multiple times in the output FASTQ file, which is not correct.
 
