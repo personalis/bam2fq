@@ -132,8 +132,8 @@ Delivered:
 ------------------------------------------------
         ^                                ^
         |                                |
-        |   Comparison of delivered     |
-      <diff>    vs generated FQSUM    <diff>
+        |   Comparison of delivered      |
+      <diff>    vs generated FQSUM     <diff>
         |                                |
         |                                |
         V                                V
