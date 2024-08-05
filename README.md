@@ -132,7 +132,7 @@ Original:
         V          V           V          V
 ------------------------------------------------
 Delivered:
-    R1.fqsum    chief.cram   aux.cram  R2.fqsum
+    R1.fqsum     cram      aux.cram   R2.fqsum
 ------------------------------------------------
 ```
 
@@ -143,7 +143,7 @@ The customer then uses the chief & aux CRAM files as input to our cram2fq tool, 
 ```
 ------------------------------------------------
 Delivered:
-    R1.fqsum    chief.cram   aux.cram  R2.fqsum
+  R1.fqsum      cram     aux.cram     R2.fqsum
 ------------------------------------------------
                   |           |
                    \         /
@@ -163,7 +163,7 @@ To verify FASTQ integrity, the customer can then compare the FQSUM files generat
 ```
 ------------------------------------------------
 Delivered:
-  R1.fqsum    chief.cram   aux.cram  R2.fqsum
+  R1.fqsum      cram     aux.cram     R2.fqsum
 ------------------------------------------------
       ^                                   ^
       |                                   |
