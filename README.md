@@ -225,6 +225,6 @@ Personalis CRAM files typically contain supplementary/non-primary alignments. It
 
 To save time, the Personalis cram2fq tool will calculate the FQSUM while it is generating FASTQ files. This removes the need to run the fqsum independently of the cram2fq program, although one can still do this if desired.
 
-## What is "SBA" FASTQ file?
+## What is an "SBA" FASTQ file?
 
 SBA stands for "sorted by alignment", which is roughly the order in which FASTQ records will appear in a ".sba.fq" FASTQ file created by cram2fq. The cram2fq utility writes read pairs in the order in which they are aligned to the reference genome, which in turn reduces the entropy of the FASTQ file, allowing for better compression with algorithms such as DEFLATE, used by gzip.
