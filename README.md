@@ -14,7 +14,7 @@
     - [FASTQ comments](#fastq-comments)
     - [Secondary/non-primary alignments](#secondarynon-primary-alignments)
     - [Automatic calculation of fqsum](#automatic-calculation-of-fqsum)
-    - [What is an "SBA" FASTQ file?](#what-is-an-sba-fastq-file)
+  - [What is an "SBA" FASTQ file?](#what-is-an-sba-fastq-file)
 
 
 # cram2fq
