@@ -14,7 +14,7 @@
     - [FASTQ comments](#fastq-comments)
     - [Secondary/non-primary alignments](#secondarynon-primary-alignments)
     - [Automatic calculation of fqsum](#automatic-calculation-of-fqsum)
-    - [What is "SBA"?](#what-is-sba)
+    - [What is an "SBA" FASTQ file?](#what-is-an-sba-fastq-file)
 
 
 # cram2fq
@@ -202,7 +202,7 @@ fqsum is an algorithm developed by Personalis with the following mathematical pr
 
 The commutative property is crucial, as it allows us to checksum FASTQ files in an order-invariant manner. By using the fqsum program, one can confirm that two FASTQ files contain an identical set of records, even if the order of those FASTQ records is different, with `O(n)` time complexity and `O(1)` memory complexity.
 
-By allowing us to checksum two FASTQ files in an order-invariant manner, the cram2fq utility is able to improve the compression ratio of output gzip'd FASTQ files by writing records in a roughly "sorted by alignment" ("SBA") order. The "sba.fq" suffix on the output FASTQ files is an indication that the FASTQ records are roughly sorted by alignment. See [What is "SBA"?](#what-is-sba)
+By allowing us to checksum two FASTQ files in an order-invariant manner, the cram2fq utility is able to improve the compression ratio of output gzip'd FASTQ files by writing records in a roughly "sorted by alignment" ("SBA") order. The "sba.fq" suffix on the output FASTQ files is an indication that the FASTQ records are roughly sorted by alignment. See [What is an "SBA" FASTQ file?](#what-is-an-sba-fastq-file)
 
 If we were to use an algorithm such as md5, we would need to sort the FASTQ files before comparing checksums, which typically balances `O(nlogn)` time complexity with `O(n)` memory complexity.
 
@@ -225,6 +225,6 @@ Personalis CRAM files typically contain supplementary/non-primary alignments. It
 
 To save time, the Personalis cram2fq tool will calculate the FQSUM while it is generating FASTQ files. This removes the need to run the fqsum independently of the cram2fq program, although one can still do this if desired.
 
-## What is "SBA"?
+## What is "SBA" FASTQ file?
 
-SBA is "sorted by alignment", which is roughly the order in which FASTQ records will appear in a ".sba.fq" file. The cram2fq utility writes read pairs in the order in which they are aligned to the reference genome, which in turn reduces the entropy of the FASTQ file, allowing for better compression with algorithms such as DEFLATE, used by gzip.
+SBA stands for "sorted by alignment", which is roughly the order in which FASTQ records will appear in a ".sba.fq" FASTQ file created by cram2fq. The cram2fq utility writes read pairs in the order in which they are aligned to the reference genome, which in turn reduces the entropy of the FASTQ file, allowing for better compression with algorithms such as DEFLATE, used by gzip.
