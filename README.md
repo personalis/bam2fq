@@ -29,21 +29,55 @@ Personalis' cram2fq is optimized for, and only works with CRAM files delivered b
 # Usage
 ## cram2fq
 ```
-./cram2fq [-d] [-t threads] [-r reference] (-f <fqsum_prefix> OR -o <output_fastq_prefix>) <chief.cram> <aux.cram>
+Usage: ./cram2fq [-d] (-f <fqsum_prefix> OR -o <output_fastq_prefix>) [-r reference] [-t threads] <cram> <aux_cram>
 
--d
-    dedup, do not write FASTQ records identified as duplicates. Off by default, do not use if you are trying to construct original FASTQ files that match our delivered FQSUMs.
--t
-    threads, number of threads. Set to system threads by default.
--r
-    reference genome to use if your node is not connected to the internet. Use an uncompressed local copy of ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz
-    If this argument is not specified, cram2fq will attempt to access the reference genome via NCBI, or the location set by environmental variable REF_PATH
--f
-    FQSUM output prefix, if you only wish to generate FQSUM checksums directly from CRAM. If you want both FASTQ and FQSUM, use -o instead.
--o
-    FASTQ output prefix. This will generate both FASTQ files and FQSUMs in the same pass.
+Options:
 
-To reduce memory usage, it is advisable to list the chief CRAM, then the aux CRAM. Listing in the order "aux, chief" will work, but may take more memory.
+    -d
+        dedup, do not write FASTQ records identified as duplicates (BAM_FDUP flag). Off by default, do not use if you are trying to construct original FASTQ files that match our delivered FQSUMs.
+    -f
+        FQSUM output prefix, if you only wish to generate FQSUM checksums directly from CRAM. If you want both FASTQ and FQSUM, use -o instead.
+        If you wish to generate FQSUM checksums from FASTQ, use the 'fqsum' tool instead
+    -h
+        Display this help section
+    -o
+        FASTQ output prefix. This will generate both FASTQ files and FQSUMs in the same pass.
+    -r
+        Reference genome used for decoding CRAM files. Only necessary if your
+        host is not connected to the internet and REF_PATH environmental
+        variable is not set. In that case, use a local uncompressed copy of
+        ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz
+    -t
+        threads, number of threads. Set to system threads by default.
+
+Positional Arguments:
+
+    <cram>
+        The "chief" CRAM file, which contains all reads used during analysis
+    <aux_cram>
+        The "aux" CRAM file, which contains all auxiliary reads that were not
+        used during analysis, but are necessary for faithful reconsturction of
+        the original FASTQ files
+
+    Note that cram2fq will use less memory if the chief cram is specified
+    before the aux cram file in your positional arguments
+
+Environmental Variables:
+
+    REF_PATH
+        Used internally by htslib to specify the location of reference contigs.
+
+        If not set, htslib will use "https://www.ebi.ac.uk/ena/cram/md5/%s"
+        and populate REF_CACHE for future use.
+
+    REF_CACHE
+        Used internally by htslib to store local copies of reference contigs.
+
+        If not set, htslib will use $HOME/.cache/hts-ref
+
+    For more information on the REF_PATH/REF_CACHE variables, see the discussion
+    in the samtools manual at https://www.htslib.org/doc/samtools.html
+
 ```
 
 Example usage:
