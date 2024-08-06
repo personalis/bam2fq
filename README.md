@@ -27,8 +27,8 @@ Personalis' cram2fq is optimized for, and only works with CRAM files delivered b
 
 # Download
 ```
-wget https://github.com/personalis/cram2fq/releases/download/v1.0.39/cram2fq-1.0.39.tar.gz
-tar xvf cram2fq-1.0.39.tar.gz && cd cram2fq-1.0.39/bin
+curl -L 'https://github.com/personalis/cram2fq/releases/download/v1.0.39/cram2fq-1.0.39.tar.gz' | tar -xzv
+cd cram2fq-1.0.39/bin
 ```
 
 # Usage
