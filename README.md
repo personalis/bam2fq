@@ -25,6 +25,11 @@ Personalis' cram2fq is optimized for, and only works with CRAM files delivered b
 
 [CRAM files delivered by Personalis should _only_ be converted back to FASTQ using the Personalis cram2fq tool.](#why-do-you-have-to-use-personalis-cram2fq-with-personalis-cram-files)
 
+# Download
+```
+wget https://github.com/personalis/cram2fq/releases/download/v1.0.39/cram2fq-1.0.39.tar.gz
+tar xvf cram2fq-1.0.39.tar.gz && cd cram2fq-1.0.39/bin
+```
 
 # Usage
 ## cram2fq
